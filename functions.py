@@ -50,3 +50,21 @@ def jarvismarch(A):
             del P[right]
 
     return [A[i] for i in H]
+
+def minimal_corvex_hull(Set, convex_hull):
+    import matplotlib.pyplot as plt
+    plt.figure(figsize=(8, 6))
+    # Рисуем точки
+    x, y = zip(*Set)
+    plt.scatter(x, y, color='blue', label='Точки')
+
+    # Рисуем минимальную выпуклую оболочку
+    hull_x, hull_y = zip(*convex_hull)
+    plt.fill(hull_x + (hull_x[0],), hull_y + (hull_y[0],), color='lightgreen', alpha=0.5, label='Выпуклая оболочка')
+
+    plt.title('Минимальная выпуклая оболочка')
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.legend()
+    plt.grid()
+    plt.show()
